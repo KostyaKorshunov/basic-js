@@ -14,7 +14,16 @@ import { NotImplementedError } from '../extensions/index.js';
  * ]) => 3`
  *
  */
-export default function countCats(/* matrix */) {
+export default function countCats( matrix ) {
   throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+	let cnt = 0
+	matrix.Map((sub_m, key, map) => {
+		sub_m.Map((val, key, map) => {
+			if(val === '^^'){	
+				cnt++
+				}
+		});
+	});
+	console.log( "=== my = "+cnt )
+	return cnt;
 }
