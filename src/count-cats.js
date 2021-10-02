@@ -15,15 +15,13 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function countCats( matrix ) {
-  throw new NotImplementedError('Not implemented');
-	let cnt = 0
-	matrix.Map((sub_m, key, map) => {
-		sub_m.Map((val, key, map) => {
-			if(val === '^^'){	
-				cnt++
-				}
+//  throw new NotImplementedError('Not implemented');
+	let cnt = 0;
+	matrix.forEach((sub_m, key, map) => {
+		sub_m.forEach((vl, key, map) => {
+			if(vl == '^^'){		cnt++	};
 		});
 	});
-	console.log( "=== my = "+cnt )
-	return cnt;
+	console.log( "=== my = "+cnt );
+	return Number(cnt);
 }
