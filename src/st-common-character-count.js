@@ -11,9 +11,9 @@ import { NotImplementedError } from '../extensions/index.js';
  * For s1 = "aabcc" and s2 = "adcaa", the output should be 3
  * Strings have 3 common characters - 2 "a"s and 1 "c".
  */
-export default function getCommonCharacterCount( /* s1, s2 */ ) {
-  throw new NotImplementedError('Not implemented');
-/*  let ss = s2;
+export default function getCommonCharacterCount( s1, s2 ) {
+//  throw new NotImplementedError('Not implemented');
+  let ss = s2;
   let out = 0;
   if( s1 == "" || s2 == "" ){ return 0; }
 
@@ -21,12 +21,18 @@ export default function getCommonCharacterCount( /* s1, s2 */ ) {
   //  let el = s1.charAt(i);
     let it = ss.indexOf( el );
     if( it >= 0 ){
-        ss = ss.slice( it );
+        ss = sst(ss, it );
         out++;
     console.log(">>>  "+el+"  <<< "+ss );
     }
   };
 
   return out;
-  */
+}
+
+function sst(str, ind){
+  if( str === '' )  return "";
+  if( ind == 0) return str.substring(1);
+  if( str.length-1 > ind ) return (str.substring( 0, ind )+str.substring( ind+1 ));
+  return str.slice(0, -1);
 }
