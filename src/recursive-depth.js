@@ -13,8 +13,26 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default class DepthCalculator {
-  calculateDepth(/* arr */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  calculateDepth( arr ) {
+//    throw new NotImplementedError('Not implemented');
+      let out = 0;
+      //  out = getArrayDepth( arr );
+        out = getDepth( arr );
+      //  out = arr.glubina;
+      return out;
   }
+}
+
+function getArrayDepth(obj) {
+  if (Array.isArray(obj)) return 1 + Math.max(...obj.map(t => getArrayDepth(t)))
+  else return 0
+}
+function getDepth( arr ){
+  let counter=0;
+  let s=[...JSON.stringify(arr)].filter(i=>(i=="[" || i=="]")).join("");
+  while( s.length != 0 ){
+      s = s.replace(/\[\]/g, "");
+      counter++
+  }
+  return counter;
 }
